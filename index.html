@@ -1,1 +1,22 @@
+<script>
+  // Если в URL есть токен после знака #
+  if (window.location.hash) {
+      // Перенаправляем обратно в приложение twibott
+      window.location.href = "twibott://callback/" + window.location.hash;
+  }
+</script>
 
+<!-- Для подстраховки можно добавить обычную кнопку -->
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+  <h2>Авторизация успешна!</h2>
+  <p>Если приложение не открылось автоматически, нажмите кнопку ниже:</p>
+  <a href="twibott://callback/" id="app-link" style="display: inline-block; padding: 12px 24px; background: #9146FF; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
+    Вернуться в приложение
+  </a>
+</div>
+
+<script>
+  if (window.location.hash) {
+      document.getElementById('app-link').href = "twibott://callback/" + window.location.hash;
+  }
+</script>
